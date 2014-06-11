@@ -32,3 +32,8 @@ Set the required project (git), database, virtualhost & users in the databags
 Author:: Triple-networks (<r.gravestein@triple-networks.com>)
 Author:: Lifthoofd (<eovermeire@gmail.com>)
 
+# Todo
+
+ * primesense-nite-nonfree
+ * https://github.com/OpenNI/OpenNI
+ * vagrant-vbguest plugin

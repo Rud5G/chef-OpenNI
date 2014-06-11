@@ -67,5 +67,31 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Enable SSH agent forwarding for git clones
   config.ssh.forward_agent = true
 
+  config.vm.provision :chef_solo do |chef|
+    chef.data_bags_path = 'data_bags'
+    chef.environments_path = 'environments'
+    chef.roles_path = 'roles'
+
+    chef.verbose_logging = true
+    chef.log_level = :info
+    # chef.log_level = :debug
+    chef.node_name = 'openni.dev'
+    chef.environment = 'development'
+
+    chef.log_level = :debug
+    chef.json = {
+        'java' => {
+            'install_flavor' => 'openjdk',
+            'jdk_version' => '6'
+        }
+    }
+
+    chef.run_list = [
+        'recipe[OpenNI::default]'
+    ]
+  end
+
+
+
 end
 
