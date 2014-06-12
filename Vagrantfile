@@ -62,6 +62,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       '--memory', '1024',
       '--cpus', '2',
     ]
+
+    # usb + usb extended: you need to install the extension pack.
+    vb.customize ['modifyvm', :id, '--usb', 'on']
+    vb.customize ['modifyvm', :id, '--usbehci', 'on']
+    vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Microsoft Xbox NUI Audio [0100]', '--vendorid', '045E', '--productid', '02AD']
+    vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Microsoft Xbox NUI Camera [010B]', '--vendorid', '045E', '--productid', '02AE']
+    vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Microsoft Xbox NUI Motor [0105]', '--vendorid', '045E', '--productid', '02B0']
   end
 
   # Enable SSH agent forwarding for git clones

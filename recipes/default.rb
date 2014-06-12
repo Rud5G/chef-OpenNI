@@ -7,6 +7,14 @@
 # 
 #
 
+
+apt_repository 'trusty-nonfree' do
+  uri 'http://archive.canonical.com/ubuntu'
+  distribution 'trusty'
+  components ['nonfree']
+  action :add
+end
+
 include_recipe 'baseserver::baseserver'
 
 include_recipe 'OpenNI::java'
