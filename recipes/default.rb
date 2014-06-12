@@ -7,13 +7,13 @@
 # 
 #
 
-#
-# apt_repository 'trusty-nonfree' do
-#   uri 'http://archive.canonical.com/ubuntu'
-#   distribution node['lsb']['codename']
-#   components ['nonfree']
-#   action :add
-# end
+
+apt_repository 'trusty-nonfree' do
+  uri 'http://archive.canonical.com/ubuntu'
+  distribution node['lsb']['codename']
+  components ['multiverse']
+  action :add
+end
 
 include_recipe 'baseserver::baseserver'
 
